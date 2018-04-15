@@ -6,12 +6,12 @@ using namespace std;
 const int InitiSize = 100;
 typedef struct
 {
-	char *data;
+	char *data;	
 	int MaxSize;
 	int Length;
 }SeqList;
 
-//²åÈëÔªËØ
+//æ’å…¥å…ƒç´ 
 bool ListInsert(SeqList &L, int i, char e)
 {
 	if (i < 1 || i > L.Length + 1)
@@ -31,7 +31,7 @@ bool ListInsert(SeqList &L, int i, char e)
 	return true;
 }
 
-//É¾³ıµÚi¸öÎ»ÖÃÔªËØ
+//åˆ é™¤ç¬¬iä¸ªä½ç½®å…ƒç´ 
 bool ListDelete(SeqList &L, int i, char &e)
 {
 	if (i < 1 || i > L.Length)
@@ -47,7 +47,7 @@ bool ListDelete(SeqList &L, int i, char &e)
 	return true;
 }
 
-//²éÕÒÔªËØËùÔÚÎ»ÖÃ
+//æŸ¥æ‰¾å…ƒç´ æ‰€åœ¨ä½ç½®
 int LoacteElem(SeqList L, char e)
 {
 	int i;
@@ -61,7 +61,7 @@ int LoacteElem(SeqList L, char e)
 	return 0;
 }
 
-//Ex_2.1 É¾³ı×îĞ¡ÔªËØ
+//Ex_2.1 åˆ é™¤æœ€å°å…ƒç´ 
 bool Del_Min(SeqList &L, char &value)
 {
 	if (L.Length == 0)
@@ -75,7 +75,7 @@ bool Del_Min(SeqList &L, char &value)
 		if (L.data[i] < value)
 		{
 			value = L.data[i];
-			pos = i;
+			pos = i;				
 		}
 	}
 	L.data[pos] = L.data[L.Length - 1];
@@ -83,14 +83,14 @@ bool Del_Min(SeqList &L, char &value)
 	return true;
 }
 
-//Ex_2.2 Ë³Ğò±íÄæÖÃ
+//Ex_2.2 é¡ºåºè¡¨é€†ç½®
 bool Reverse(SeqList &L)
 {
 	int len = L.Length / 2;
 	if (L.Length <= 0)
 	{
 		return false;
-	}
+	}	
 	for (int i = 0; i < len; i++)
 	{
 		char temp = L.data[i];
@@ -100,7 +100,7 @@ bool Reverse(SeqList &L)
 	return true;
 }
 
-//Ex_2.3 É¾³ıË³Ğò±íÖĞËùÓĞÖµÎªXµÄÔªËØ(·½·¨Ò»)
+//Ex_2.3 åˆ é™¤é¡ºåºè¡¨ä¸­æ‰€æœ‰å€¼ä¸ºXçš„å…ƒç´ (æ–¹æ³•ä¸€)
 bool delAllX_1(SeqList &L,char c)
 {
 	int nums = 0;
@@ -108,7 +108,7 @@ bool delAllX_1(SeqList &L,char c)
 	if (L.Length <= 0)
 	{
 		return false;
-	}
+	}	
 	for (int i = 0; i < len; i++)
 	{
 		if (L.data[i] == c)
@@ -124,7 +124,7 @@ bool delAllX_1(SeqList &L,char c)
 	return true;
 }
 
-//Ex_2.3 É¾³ıË³Ğò±íÖĞËùÓĞÖµÎªXµÄÔªËØ(·½·¨¶ş)
+//Ex_2.3 åˆ é™¤é¡ºåºè¡¨ä¸­æ‰€æœ‰å€¼ä¸ºXçš„å…ƒç´ (æ–¹æ³•äºŒ)
 bool delAllX_2(SeqList &L, char c)
 {
 	int pos = 0;
@@ -147,7 +147,7 @@ bool delAllX_2(SeqList &L, char c)
 	return true;
 }
 
-//Ex2.4 ÓĞĞòË³Ğò±íÉ¾³ısµ½tÖ®¼äµÄÔªËØ
+//Ex2.4 æœ‰åºé¡ºåºè¡¨åˆ é™¤såˆ°tä¹‹é—´çš„å…ƒç´ 
 bool delSToT(SeqList &L, char s, char t)
 {
 	int i, j;
@@ -171,7 +171,7 @@ bool delSToT(SeqList &L, char s, char t)
 	return true;
 }
 
-//Ex2.5 Ë³Ğò±íÉ¾³ısµ½tÖ®¼äµÄÔªËØ
+//Ex2.5 é¡ºåºè¡¨åˆ é™¤såˆ°tä¹‹é—´çš„å…ƒç´ 
 bool delSToT_2(SeqList &L, char S, char T)
 {
 	int pos = 0;
@@ -193,9 +193,9 @@ bool delSToT_2(SeqList &L, char S, char T)
 	}
 	return true;
 }
-//Ex2.5 ÓĞĞòË³Ğò±íÉ¾³ıÏàÍ¬µÄÔªËØ
+//Ex2.6 æœ‰åºé¡ºåºè¡¨åˆ é™¤ç›¸åŒçš„å…ƒç´ 
 bool delSame(SeqList &L)
-{
+{	
 	int len = L.Length;
 	if (L.Length <= 0)
 	{
@@ -207,37 +207,78 @@ bool delSame(SeqList &L)
 		{
 			L.data[++i] = L.data[j];
 		}
-		else
+		else 
 		{
 			L.Length--;
 		}
 	}
 	return true;
 }
+//Ex2.7 åˆå¹¶ä¸¤ä¸ªæœ‰åºé¡ºåºè¡¨
+bool listMerge(SeqList A, SeqList B, SeqList &C)
+{
+	int i = 0, j = 0, k = 0;
+	if (A.Length + B.Length > C.MaxSize)
+		return false;
+	while (i < A.Length&&j < B.Length)
+	{
+		if (A.data[i] < B.data[j])
+		{
+			C.data[k++] = A.data[i++];
+		}
+		else
+		{
+			C.data[k++] = B.data[j++];
+		}
+	}
+	while (i < A.Length)
+	{
+		C.data[k++] = A.data[i++];
+	}
+	while (j < B.Length)
+	{
+		C.data[k++] = B.data[j++];
+	}
+	C.Length = k;
+	return false;	
+}
 int main()
 {
-	SeqList seqList;
+	SeqList seqList,seqList2,seqList3;
 	seqList.data = new char[InitiSize];
 	seqList.Length = 0;
 	seqList.MaxSize = InitiSize;
+
+	seqList2.data = new char[InitiSize];
+	seqList2.Length = 0;
+	seqList2.MaxSize = InitiSize;
+
+	seqList3.data = new char[InitiSize];
+	seqList3.Length = 0;
+	seqList3.MaxSize = InitiSize;
+
 	for (int i = 1; i <= 6; i++)
 	{
-		ListInsert(seqList, i, 'a' + i);
-
-		ListInsert(seqList, i, 'a');
+		ListInsert(seqList, i, 'a' + i);		
 		//ListInsert(seqList, i, 'a');
+		//ListInsert(seqList, i, 'a');
+	}
 
+	for (int i = 1; i <= 7; i++)
+	{
+		ListInsert(seqList2, i, 'g' + i);
 	}
 	//Reverse(seqList);
 	//delAllX_2(seqList, 'a');
 	//delSToT_2(seqList, 'b', 'e');
 	//delSame(seqList);
-	for (int i = 0; i < seqList.Length; i++)
+	listMerge(seqList, seqList2, seqList3);
+	for (int i = 0; i < seqList3.Length; i++)
 	{
-		cout << seqList.data[i] << " ";
+		cout << seqList3.data[i] << " ";
 	}
 
-	cout << seqList.Length << endl;
+	cout << seqList3.Length << endl;
 
 	system("pause");
 }
